@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Plus, Sparkles, Tag } from 'lucide-react';
+import { X, Plus } from 'lucide-react';
 
 export function AddExpenseModal({ 
   currentDay, 
@@ -41,19 +41,19 @@ export function AddExpenseModal({
   };
 
   return (
-    <div className="modal-backdrop">
+    <div className="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-add-title">
       <div className="glass-panel modal-card animate-slide-up">
         <div className="modal-header">
           <div className="modal-title-group">
-            <div className="modal-icon-badge">
+            <div className="modal-icon-badge" aria-hidden="true">
               <Plus size={18} />
             </div>
             <div>
-              <h3 className="modal-title">Log New Expense</h3>
+              <h3 id="modal-add-title" className="modal-title">Log New Expense</h3>
               <p className="modal-desc">Record actual UPI spend into your 30-day ledger</p>
             </div>
           </div>
-          <button className="btn-icon" onClick={onClose}>
+          <button className="btn-icon" onClick={onClose} aria-label="Close modal">
             <X size={18} />
           </button>
         </div>

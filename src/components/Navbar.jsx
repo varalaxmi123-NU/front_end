@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 import { 
   Zap, 
   RotateCcw, 
-  Calendar, 
   Sparkles, 
-  TrendingUp, 
-  ShieldCheck, 
-  Info,
   Sliders,
   Volume2,
   VolumeX
@@ -35,22 +31,22 @@ export function Navbar({
   };
 
   return (
-    <header className="navbar-container">
+    <header className="navbar-container" role="banner">
       <div className="navbar-content">
         {/* Brand / Logo */}
         <div className="navbar-brand">
-          <div className="brand-badge-icon">
+          <div className="brand-badge-icon" aria-hidden="true">
             <Zap size={22} className="brand-lightning" />
           </div>
           <div>
-            <div className="brand-title-wrap">
+            <h1 className="brand-title-wrap">
               <span className="brand-title">PULSE</span>
               <span className="brand-tag">30</span>
               <span className="badge badge-violet brand-subtext">₹10K / 30D</span>
               {isSimulating && (
                 <span className="badge badge-amber animate-pulse-glow">SIMULATION ACTIVE</span>
               )}
-            </div>
+            </h1>
             <p className="brand-tagline">Gen Z Financial Command & Decision Simulator</p>
           </div>
         </div>

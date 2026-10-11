@@ -2,21 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { 
   Bot, 
   Sparkles, 
-  Flame, 
   Lightbulb, 
-  CheckCircle, 
-  ArrowRight,
-  TrendingUp, 
-  AlertTriangle, 
+  ArrowRight, 
   Zap, 
   Send, 
   MessageSquare, 
-  Compass, 
-  ShieldAlert, 
-  RefreshCw,
-  Cpu,
-  Smile,
-  SlidersHorizontal
+  Compass 
 } from 'lucide-react';
 import { playClick, playSuccessChime } from '../utils/audioEffects';
 
@@ -46,6 +37,7 @@ export function PulseCopilot({ metrics, onQuickSimulate, onOpenSimulator }) {
   const [inputQuestion, setInputQuestion] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
+  const msgCounterRef = useRef(100);
 
   // Auto-scroll chat
   useEffect(() => {
@@ -142,8 +134,9 @@ export function PulseCopilot({ metrics, onQuickSimulate, onOpenSimulator }) {
 
     playClick();
 
+    msgCounterRef.current += 1;
     const userMsg = {
-      id: `msg-${Date.now()}`,
+      id: `msg-${msgCounterRef.current}`,
       sender: 'user',
       text: query,
       time: 'Just now'
@@ -155,8 +148,9 @@ export function PulseCopilot({ metrics, onQuickSimulate, onOpenSimulator }) {
 
     setTimeout(() => {
       const reply = generateAiReply(query);
+      msgCounterRef.current += 1;
       const aiMsg = {
-        id: `msg-ai-${Date.now()}`,
+        id: `msg-ai-${msgCounterRef.current}`,
         sender: 'ai',
         text: reply.text,
         time: 'Just now',

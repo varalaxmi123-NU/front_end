@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, CheckCircle2, X, ArrowRight, AlertTriangle, Flame } from 'lucide-react';
+import { Sparkles, CheckCircle2, X } from 'lucide-react';
 import { playSuccessChime, playClick } from '../utils/audioEffects';
 
 export function SimulationBanner({ 

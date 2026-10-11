@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TrendingDown, TrendingUp, Info, AlertTriangle } from 'lucide-react';
+import { Info, AlertTriangle } from 'lucide-react';
 
 export function TrajectoryChart({ 
   trajectoryPoints = [], 

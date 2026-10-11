@@ -47,7 +47,7 @@ export function playClick() {
     gain.connect(ctx.destination);
     osc.start();
     osc.stop(ctx.currentTime + 0.05);
-  } catch (e) {
+  } catch {
     // Audio context silently ignored if restricted
   }
 }
@@ -71,7 +71,7 @@ export function playSuccessChime() {
       osc.start(startTime);
       osc.stop(startTime + 0.35);
     });
-  } catch (e) {}
+  } catch {}
 }
 
 export function playWarningSound() {
@@ -90,5 +90,5 @@ export function playWarningSound() {
     gain.connect(ctx.destination);
     osc.start();
     osc.stop(ctx.currentTime + 0.25);
-  } catch (e) {}
+  } catch {}
 }

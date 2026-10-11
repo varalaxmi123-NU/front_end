@@ -4,12 +4,8 @@ import {
   Flame, 
   Lock, 
   TrendingUp, 
-  TrendingDown, 
   AlertTriangle, 
-  ShieldAlert, 
-  CheckCircle,
-  Sparkles,
-  ArrowRight
+  Sparkles 
 } from 'lucide-react';
 
 export function HeroMetrics({ 
@@ -31,18 +27,14 @@ export function HeroMetrics({
     riskLevel,
     riskLabel,
     totalVaultSavings,
-    totalIncome,
   } = activeMetrics;
 
   const isDeficit = projectedDay30Balance < 0;
-  const isAllowanceTight = safeDailyAllowance < 100;
   const burnDiff = dailyDiscretionaryBurn - safeDailyAllowance;
 
   // Compute deltas if simulating
   const balanceDelta = isSimulating && simulatedMetrics ? simulatedMetrics.liquidBalance - metrics.liquidBalance : 0;
   const allowanceDelta = isSimulating && simulatedMetrics ? simulatedMetrics.safeDailyAllowance - metrics.safeDailyAllowance : 0;
-  const forecastDelta = isSimulating && simulatedMetrics ? simulatedMetrics.projectedDay30Balance - metrics.projectedDay30Balance : 0;
-  const runwayDelta = isSimulating && simulatedMetrics ? simulatedMetrics.runwayDays - metrics.runwayDays : 0;
 
   return (
     <div className={`hero-metrics-grid ${isSimulating ? 'simulating-active-grid' : ''}`}>

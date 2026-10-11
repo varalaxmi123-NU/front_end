@@ -2,16 +2,12 @@ import React from 'react';
 import { 
   Lock, 
   CheckCircle2, 
-  Clock, 
-  AlertCircle, 
   Tv, 
   Music, 
   Film, 
   ShoppingBag, 
   ToggleLeft, 
-  ToggleRight,
-  TrendingUp,
-  ShieldCheck
+  ToggleRight
 } from 'lucide-react';
 
 const subIconMap = {
@@ -29,7 +25,6 @@ export function CommitmentsAndSubs({
   onToggleSubscription,
   onPayCommitment 
 }) {
-  const totalCommitments = fixedCommitments.reduce((acc, c) => acc + (Number(c.amount) || 0), 0);
   const unpaidCommitments = fixedCommitments
     .filter((c) => !c.isPaid && c.dueDay >= currentDay)
     .reduce((acc, c) => acc + (Number(c.amount) || 0), 0);
@@ -60,7 +55,6 @@ export function CommitmentsAndSubs({
         <div className="commitments-list">
           {fixedCommitments.map((item) => {
             const isDueSoon = !item.isPaid && item.dueDay >= currentDay && (item.dueDay - currentDay <= 5);
-            const isPast = currentDay > item.dueDay && !item.isPaid;
 
             return (
               <div 

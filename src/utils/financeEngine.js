@@ -403,7 +403,7 @@ function generateAdvisorFeedback({
   liquidBalanceDelta,
   dailyAllowanceDelta,
   healthScoreDelta,
-  projectedDay30Delta,
+  _projectedDay30Delta,
 }) {
   const isPurchase = action.type === "PURCHASE";
   const isIncome = action.type === "GIG_INCOME";
@@ -496,3 +496,8 @@ function generateAdvisorFeedback({
     actionableTip: "Compare before vs after metrics below.",
   };
 }
+
+export function generateTrajectoryData(state) {
+  return calculateFinancialMetrics(state).trajectoryPoints;
+}
+

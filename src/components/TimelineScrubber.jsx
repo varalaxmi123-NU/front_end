@@ -1,11 +1,10 @@
 import React from 'react';
-import { Calendar, ChevronRight, FastForward, Rewind, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { Calendar, ChevronRight, Rewind } from 'lucide-react';
 
 export function TimelineScrubber({ 
   currentDay, 
   totalDays = 30, 
-  onDayChange,
-  fixedCommitments = []
+  onDayChange
 }) {
   const remainingDays = Math.max(1, totalDays - currentDay + 1);
   const progressPercent = Math.round((currentDay / totalDays) * 100);

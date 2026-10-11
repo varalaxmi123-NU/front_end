@@ -1,23 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Sparkles, 
   ArrowRight, 
-  TrendingDown, 
-  TrendingUp, 
-  AlertTriangle, 
   CheckCircle2, 
   X, 
-  RotateCcw, 
-  ShieldAlert,
-  Flame,
-  Wallet,
-  Clock,
-  Layers,
-  ShoppingBag,
-  Tv,
-  Coins,
-  Shield,
-  Percent
+  ShoppingBag, 
+  Tv, 
+  Coins, 
+  Shield, 
+  Percent 
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { simulateDecision } from '../utils/financeEngine';
@@ -108,10 +99,11 @@ export function DecisionSimulator({
   const { currentMetrics, simulatedMetrics, deltas, aiAdvisorInsight, simulationNarrative } = simResult;
 
   // Broadcast simulation to full dashboard live
-  React.useEffect(() => {
+  useEffect(() => {
     if (onLiveSimulate) {
       onLiveSimulate(currentAction, simResult);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     activeTab, 
     purchaseTitle, 

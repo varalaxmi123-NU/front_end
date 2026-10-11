@@ -2763,3 +2763,256 @@
 .ai-strategies-interface {
   margin-top: 18px;
 }
+
+/* ==========================================================================
+   ACCESSIBILITY & SKIP LINKS (WCAG 2.1 AA COMPLIANT)
+   ========================================================================== */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 20px;
+  background: var(--accent-violet);
+  color: #ffffff;
+  padding: 12px 20px;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  z-index: 99999;
+  text-decoration: none;
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.6);
+  transition: top 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 20px;
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-violet-light) !important;
+  outline-offset: 2px !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS & ENGINE AUDIT COMPLIANCE
+   ========================================================================== */
+
+/* 1. Large Laptops & Desktops (max-width: 1200px) */
+@media (max-width: 1200px) {
+  .hero-metrics-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px;
+  }
+
+  .core-analytics-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .commitments-subs-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .main-content {
+    padding: 20px 16px 60px 16px;
+    gap: 20px;
+  }
+}
+
+/* 2. Tablets & Small Laptops (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .navbar-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .navbar-actions {
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .sim-banner-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .sim-banner-deltas {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .sim-banner-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .vaults-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  }
+
+  .roulette-container {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 3. Small Tablets & Phablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .hero-metrics-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  .metric-card {
+    padding: 16px;
+  }
+
+  .metric-value {
+    font-size: 1.75rem !important;
+  }
+
+  .timeline-scrubber {
+    padding: 14px;
+  }
+
+  .timeline-days-track {
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+  }
+
+  .innovation-suite-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  .modal-card {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    padding: 16px !important;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-two-col {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  .sim-tabs-nav {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+  }
+
+  .chat-interface-wrapper {
+    height: 480px;
+  }
+}
+
+/* 4. Mobile Devices (max-width: 640px) */
+@media (max-width: 640px) {
+  .brand-title-wrap {
+    flex-wrap: wrap;
+  }
+
+  .brand-tagline {
+    font-size: 0.75rem;
+  }
+
+  .hero-action-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-hero-action {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .chart-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .chart-legend {
+    flex-wrap: wrap;
+  }
+
+  .transaction-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .transaction-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* 5. Compact Smartphones (max-width: 480px) */
+@media (max-width: 480px) {
+  .main-content {
+    padding: 12px 10px 48px 10px;
+    gap: 16px;
+  }
+
+  .panel-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .metric-header {
+    gap: 8px;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-commit-action {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sim-banner-left {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* 6. Touch-First Optimization */
+@media (pointer: coarse) {
+  button,
+  .btn-icon,
+  .sub-toggle-btn,
+  .ai-chip-pill,
+  .timeline-day-pill {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* 7. Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 8. Preferred Dark Scheme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #070a12;
+  }
+}
+

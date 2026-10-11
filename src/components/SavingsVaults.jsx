@@ -5,11 +5,8 @@ import {
   Sparkles, 
   Plus, 
   ArrowDownLeft, 
-  ArrowUpRight, 
   Lock, 
-  Unlock,
-  CheckCircle2,
-  TrendingUp
+  Unlock
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 

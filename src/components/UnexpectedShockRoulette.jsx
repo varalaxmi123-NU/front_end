@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import { 
-  Zap, 
   Dices, 
   ShieldAlert, 
   AlertCircle, 
-  Check, 
-  ArrowRight,
   Sparkles,
   CloudRain,
   Gift,

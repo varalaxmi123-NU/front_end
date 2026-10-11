@@ -1,15 +1,5 @@
 import React from 'react';
-import { 
-  Shield, 
-  Activity, 
-  Target, 
-  Lock, 
-  Award, 
-  ArrowUpRight, 
-  Sparkles,
-  AlertOctagon,
-  CheckCircle2
-} from 'lucide-react';
+import { Activity, Target } from 'lucide-react';
 
 export function FinancialHealthWidget({ 
   metrics, 
@@ -23,10 +13,7 @@ export function FinancialHealthWidget({
     healthTier,
     healthTheme,
     pillars,
-    riskLevel,
-    riskLabel,
     safeDailyAllowance,
-    projectedDay30Balance,
   } = activeMetrics;
 
   const scoreDelta = isSimulating && simulatedMetrics ? simulatedMetrics.healthScore - metrics.healthScore : 0;

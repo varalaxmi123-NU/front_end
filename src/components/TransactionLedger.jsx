@@ -1,17 +1,9 @@
 import React, { useState } from 'react';
 import { 
   Receipt, 
-  ArrowUpRight, 
-  ArrowDownLeft, 
-  Filter, 
   Tag, 
-  Calendar, 
-  ShoppingBag, 
   Coffee, 
-  Train, 
-  BookOpen, 
-  Trash2,
-  Utensils
+  Trash2 
 } from 'lucide-react';
 
 export function TransactionLedger({ 

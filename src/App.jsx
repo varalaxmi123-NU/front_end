@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import { 
-  INITIAL_FINANCIAL_STATE, 
-  PERSONA_PRESETS 
+  INITIAL_FINANCIAL_STATE 
 } from './data/initialData';
 import { 
   calculateFinancialMetrics, 
@@ -16,6 +15,7 @@ import { HeroMetrics } from './components/HeroMetrics';
 import { FinancialHealthWidget } from './components/FinancialHealthWidget';
 import { TrajectoryChart } from './components/TrajectoryChart';
 import { DecisionSimulator } from './components/DecisionSimulator';
+import { InnovationSuite } from './components/InnovationSuite';
 import { UnexpectedShockRoulette } from './components/UnexpectedShockRoulette';
 import { CommitmentsAndSubs } from './components/CommitmentsAndSubs';
 import { SavingsVaults } from './components/SavingsVaults';
@@ -146,9 +146,8 @@ export function App() {
   };
 
   // Commit decision from Decision Simulator or Banner
-  const handleCommitDecision = (actionToCommit, simResultToCommit) => {
+  const handleCommitDecision = (actionToCommit) => {
     const action = actionToCommit || activeSimulation?.action;
-    const simResult = simResultToCommit || activeSimulation?.result;
     if (!action) return;
 
     if (action.type === 'PURCHASE') {
@@ -370,6 +369,9 @@ export function App() {
 
   return (
     <div className="app-root">
+      {/* Accessibility Skip Link */}
+      <a href="#main-content" className="skip-link">Skip to main financial dashboard</a>
+
       {/* Top Navbar with Presets & Quick Actions */}
       <Navbar
         currentDay={financialState.currentDay}
@@ -392,7 +394,7 @@ export function App() {
         />
       )}
 
-      <main className="main-content">
+      <main id="main-content" className="main-content" tabIndex="-1" role="main">
         {/* 1. Interactive 30-Day Timeline Scrubber */}
         <TimelineScrubber
           currentDay={financialState.currentDay}
@@ -433,14 +435,21 @@ export function App() {
           isModal={false}
         />
 
-        {/* 5. AI Copilot Strategist */}
+        {/* 5. Innovation Suite: 50/30/20 Cashflow Allocation Donut & 48h Wishlist */}
+        <InnovationSuite
+          metrics={actualMetrics}
+          financialState={financialState}
+          onOpenSimulator={() => setIsSimulatorOpen(true)}
+        />
+
+        {/* 6. AI Copilot Strategist */}
         <PulseCopilot
           metrics={isGlobalPreviewActive && simulatedMetrics ? simulatedMetrics : actualMetrics}
           onQuickSimulate={handleQuickSimulate}
           onOpenSimulator={() => setIsSimulatorOpen(true)}
         />
 
-        {/* 6. Fixed Commitments & Subscriptions Manager */}
+        {/* 7. Fixed Commitments & Subscriptions Manager */}
         <CommitmentsAndSubs
           fixedCommitments={financialState.fixedCommitments}
           subscriptions={financialState.subscriptions}
