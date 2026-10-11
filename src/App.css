@@ -2871,9 +2871,9 @@
   color: var(--text-secondary);
 }
 
-/* Wishlist styles */
+/* Wishlist & Impulse Sandbox Styling */
 .wish-add-form {
-  background: rgba(14, 19, 34, 0.8);
+  background: rgba(14, 19, 34, 0.85);
   border: 1px solid var(--border-medium);
   border-radius: var(--radius-md);
   padding: 16px;
@@ -2882,89 +2882,166 @@
   gap: 12px;
 }
 
-.wish-items-list {
+.wishlist-items-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-top: 6px;
   max-height: 280px;
   overflow-y: auto;
 }
 
-.wish-item-card {
+.wish-card-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 14px;
+  padding: 12px 16px;
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(8px);
   transition: all var(--transition-fast);
-}
-
-.wish-item-card:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: var(--border-medium);
-}
-
-.wish-item-left {
-  display: flex;
-  align-items: center;
   gap: 12px;
 }
 
-.wish-timer-badge {
+.wish-card-row:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(139, 92, 246, 0.35);
+  transform: translateY(-1px);
+}
+
+.wish-info-col {
   display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.7rem;
-  padding: 3px 8px;
-  border-radius: var(--radius-full);
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+  min-width: 0;
 }
 
-.wish-timer-badge.cooling {
-  background: rgba(6, 182, 212, 0.12);
-  color: var(--accent-cyan);
-  border: 1px solid rgba(6, 182, 212, 0.25);
+.wish-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.wish-timer-badge.ready {
-  background: rgba(16, 185, 129, 0.12);
-  color: var(--accent-mint);
-  border: 1px solid rgba(16, 185, 129, 0.25);
-}
-
-.wish-item-actions {
+.wish-meta {
   display: flex;
   align-items: center;
   gap: 8px;
+  font-size: 0.825rem;
 }
 
-.btn-wish-sim {
-  padding: 5px 10px;
+.wish-price {
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.wish-meta .meta-divider {
+  color: var(--text-muted);
   font-size: 0.75rem;
+}
+
+.wish-timer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
   font-weight: 600;
-  border-radius: var(--radius-sm);
-  background: rgba(139, 92, 246, 0.15);
-  border: 1px solid rgba(139, 92, 246, 0.3);
-  color: var(--accent-violet-light);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: rgba(6, 182, 212, 0.12);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  white-space: nowrap;
 }
 
-.btn-wish-sim:hover {
-  background: var(--accent-violet);
-  color: white;
-}
-
-.telemetry-export-bar {
+.wish-right-btns {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 12px 18px;
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border-subtle);
-  grid-column: 1 / -1;
-  flex-wrap: wrap;
-  gap: 12px;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.btn-stash-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  color: var(--accent-violet-light);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-stash-chip:hover {
+  background: var(--accent-violet);
+  color: #ffffff;
+  box-shadow: 0 0 12px var(--accent-violet-glow);
+  transform: translateY(-1px);
+}
+
+.tx-delete-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  background: rgba(244, 63, 94, 0.1);
+  border: 1px solid rgba(244, 63, 94, 0.25);
+  color: var(--accent-rose-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.tx-delete-btn:hover {
+  background: var(--accent-rose);
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(244, 63, 94, 0.4);
+}
+
+/* Export Solvency Audit Bar & Button */
+.export-report-bar {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.btn-export-audit {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-medium);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-export-audit:hover {
+  background: rgba(6, 182, 212, 0.12);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan-light);
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.25);
+  transform: translateY(-1px);
 }
 
 
