@@ -139,9 +139,15 @@ export function InnovationSuite({
         </div>
 
         <div className="donut-visual-container">
-          {/* Custom SVG Donut Ring */}
-          <div className="donut-svg-wrapper">
-            <svg viewBox="0 0 100 100" className="donut-chart-svg" aria-label="Budget distribution chart">
+          <div className="donut-svg-wrapper" style={{ width: '170px', height: '170px', minWidth: '170px', minHeight: '170px', maxWidth: '170px', maxHeight: '170px', position: 'relative' }}>
+            <svg 
+              width="170" 
+              height="170" 
+              viewBox="0 0 100 100" 
+              style={{ width: '170px', height: '170px', maxWidth: '170px', maxHeight: '170px', transform: 'rotate(-90deg)', display: 'block' }} 
+              className="donut-chart-svg" 
+              aria-label="Budget distribution chart"
+            >
               {/* Needs & Fixed Segment */}
               <circle
                 cx="50"
