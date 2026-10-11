@@ -6,7 +6,21 @@ export default defineConfig({
   plugins: [react()],
   build: {
     cssCodeSplit: true,
-    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('lucide-react')) {
+              return 'icons';
+            }
+            if (id.includes('canvas-confetti')) {
+              return 'confetti';
+            }
+            return 'vendor';
+          }
+        },
+      },
+    },
   },
   server: {
     port: 5173,

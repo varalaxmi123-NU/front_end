@@ -3154,14 +3154,25 @@
     font-size: 1.75rem !important;
   }
 
-  .timeline-scrubber {
+  .timeline-scrubber-card {
     padding: 14px;
   }
 
-  .timeline-days-track {
-    overflow-x: auto;
-    padding-bottom: 8px;
-    scrollbar-width: thin;
+  .timeline-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .timeline-controls {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .timeline-milestones {
+    display: none; /* Hide micro milestones on mobile to prevent horizontal overflow */
   }
 
   .innovation-suite-grid {

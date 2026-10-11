@@ -1,4 +1,4 @@
-import { calculateFinancialMetrics, simulateDecision, generateTrajectoryData } from '../utils/financeEngine';
+import { calculateFinancialMetrics, simulateDecision, generateTrajectoryData } from '../utils/financeEngine.js';
 
 /**
  * Domain Service for Financial Modeling and Simulation
